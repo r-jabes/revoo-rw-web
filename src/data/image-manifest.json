@@ -1,0 +1,58 @@
+{
+  "revoo-a12-side-red": {
+    "group": "models",
+    "width": 2890,
+    "height": 2136,
+    "ratio": 1.353,
+    "widths": [
+      900,
+      1600,
+      2400,
+      2890
+    ],
+    "blur": "data:image/webp;base64,UklGRj4CAABXRUJQVlA4WAoAAAAQAAAAFwAAEQAAQUxQSDMBAAABkLNtm2m7+t9v5ti2z6ncKXZlV05pJ5XtpEpn27atyrbNtWfmDTYiYgLgXyFzdhkEoUdgxgpB6IL25ekIWun/FAoe3RsFFYxf0ag/6bWB+BFRGs3bA6Iw/POHoRCIVkoAaOzcBoFeQv6qgYJfnVJcVVrXGsBS/uQ6KEHUnLUrd1///Mtzu9M1+tKz7AKt0YL+DZdCYQ09fs6ACHJe0jPWuV+cDFGNjtCyOSIikPSCjqSjaQyktl1MHycgTBB7j5akt9NNQskdGmd4Y8Lipev2facj6Y5PvpzW23y3dMbyf2uNcbRcM7DduUv3+ePNbwZpnfOxC/Y8PHz41fxB569cu/n04/vbe4+/tB987IXaz2/e3i+EAsJTS4tjIsOG8DvPxQIl40dmIEyJ4H8l6LZpagYEAFZQOCDkAAAAcAUAnQEqGAASAD7taq5QqaWkIqgKqTAdiWYAw0AVAr2feMLAp/uJg/sCr+sUGRooPlfEkAD+ufmHfAV6j4J2e95FOTVQTyrV6m8SXQsu7H0UbirxkI/VNCdNxme8jvL+VtKZDw5BOxfurn3qOS3NkFNtXkAQDbAZ76iRzOc8An30Fq+pEXVbqDqux7PL4wA7m9CiAYFUVt4LrNVxEGyKeLXKKwlsuWy88NDnobF8iYqzMiNVIIEoY3ouMYXk3yv/u4iLRMfjv61EBGnMawwPfEgyotFoNDYmBI9DkgEbosZBWAAA",
+    "trimmedFrom": {
+      "w": 3500,
+      "h": 2292,
+      "left": 308,
+      "top": 35
+    }
+  },
+  "revoo-a11-side-white": {
+    "group": "models",
+    "width": 2987,
+    "height": 2041,
+    "ratio": 1.4635,
+    "widths": [
+      900,
+      1600,
+      2400,
+      2987
+    ],
+    "blur": "data:image/webp;base64,UklGRvYBAABXRUJQVlA4WAoAAAAQAAAAFwAADwAAQUxQSBkBAAABkHLb1rHtuveN136jbSU0JHcj2bbx2bZt27ZtM77GdV+7vIqICcCEKtK7baBg2gocPvHYTGgIPMpmqJMpE2kI/zG+QYOiabqu65o+kYqgb2Q5NExubgpARcB78o8zYJ5SWtm8dMfBbTkRABQc4jCbYIYyCpIUXKMCCswe0mAMTJFCIcT4+AivAVAUbKdgLMzgNEBJUrIvAoqJb1TBmGQcdJg+pUGSgq1AG/l3P1kbnZFX9YaGpOTopuehyXLteV55RYMkpSEpKfmms/z28s4jPZ9zKSUpJaUwJAW32N07ePt07yfs4ljf0MjInx+n/lOM8zKyh9es/tUJy9BIL98AX0dH1wUUgqVA1qM3DQpUTKzAdN6/P60KAABWUDggtgAAABAEAJ0BKhgAEAA+7WKpTamlo6IwCAEwHYlnAAgQLmqTY33VM0xTLX4QAP6vm16JvkDfhV6ZvNJvXW+re/oHXv8YBxym33G6j999yYYjt4bscUcG7cylL+n2z8a8punG2cwAZqhxpNJINXtZZD52RVGmkpsbbgQBMVMXtY2d4e7675+R6qZxIzXbfbzeK1Juficq3J4pomUbdFn3403hJPZDi/gwaI79hf6G8LcvzukJrwAASQAA",
+    "trimmedFrom": {
+      "w": 3500,
+      "h": 2292,
+      "left": 269,
+      "top": 122
+    }
+  },
+  "revoo-c35y-side-red": {
+    "group": "models",
+    "width": 1800,
+    "height": 1272,
+    "ratio": 1.4151,
+    "widths": [
+      900,
+      1600,
+      1800
+    ],
+    "blur": "data:image/webp;base64,UklGRgACAABXRUJQVlA4WAoAAAAQAAAAFwAAEAAAQUxQSCIBAAABkHNb27HHwq8XsZ3ONkrbTm2rdDK2K9u2PdPZtm3zxTX4FBFq0zZg0sfcAQPap1nBMsqJWaJJCIIBRMSPD4IA87TGVG40uREQbthuE7UGSBD+UZRlWwyMNXDSVR6XAQjG4elq4HfkQQgCHLw9fJMaR8zaVCZCgOcV/uBSSLA+8P3VN5IatwmQUE2FP2IhI+A7dVJTfxi+nkSVL91hJdqeo6pT13V+LJVEhM6kxhxIElZTJXW+nnj9MFB/+r6ucF1yeWX1Vmo6X90/UhM3JzryDfnrk66RpKYqmnL9JXnaN2HZhYvnL83QaJL6b5Zj5ZXDTz7G9Jw5duzo8dMndm9uW8/fv9iNmOd3lNkQYEQRES/IF4GAX3ehDEk0QcTOXxgLAVZQOCC4AAAAcAQAnQEqGAARAD7taKtNqaYkIjAIATAdiWQAt7mMTtvyiyA8y8f3nPWqm14A/ujUpZkridwp9IrvNPvGd/xdVrQh8fPRG2dP3DRRcj4bA3EkUbR1Iu+kklsbQJ9GggokOxugtLWNe1lUhrJl4CIgBhlEbcnO+DRENCdM+lRnFOV4RJ2wOubFm6s6V61Yj/vgpG0ErAsTxTL/SiNO5NX/4ONvCQed8v0fcoOABXLLGUFzqHcJ2gAAAA==",
+    "trimmedFrom": {
+      "w": 2000,
+      "h": 2000,
+      "left": 84,
+      "top": 350
+    }
+  }
+}

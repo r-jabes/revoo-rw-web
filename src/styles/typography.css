@@ -1,0 +1,81 @@
+/*
+ * Typography system.
+ *  - Display: Archivo, variable width axis. Condensed for tall headlines,
+ *    expanded for labels that echo the extended REVOO wordmark.
+ *  - Body: Inter. Technical labels: JetBrains Mono.
+ */
+
+@layer components {
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 68%;
+    line-height: 0.86;
+    letter-spacing: -0.012em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .t-mega {
+    font-size: var(--text-mega);
+  }
+  .t-h1 {
+    font-size: var(--text-h1);
+  }
+  .t-h2 {
+    font-size: var(--text-h2);
+  }
+  .t-h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-stretch: 78%;
+    font-size: var(--text-h3);
+    line-height: 1;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  /* Expanded display: echoes the wide REVOO wordmark */
+  .t-wide {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-stretch: 122%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .t-lead {
+    font-size: var(--text-lead);
+    line-height: 1.45;
+    font-weight: 400;
+    color: var(--muted);
+    max-width: 38ch;
+    text-wrap: pretty;
+  }
+
+  .t-body {
+    font-size: var(--text-body);
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 62ch;
+    text-wrap: pretty;
+  }
+
+  /* Mono micro-label: numbering, annotations, spec captions */
+  .t-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  .t-spec-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-stretch: 80%;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+}

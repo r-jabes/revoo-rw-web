@@ -1,0 +1,78 @@
+/*
+ * REVOO design tokens.
+ * Single source of truth for colour, type, spacing, motion.
+ * Tailwind v4 reads the @theme block, so every token is also a utility
+ * (bg-ink, text-paper, font-display, ...).
+ */
+
+@theme inline {
+  /* ── Colour ───────────────────────────────────────────── */
+  --color-ink: #0e0f11; /* near-black: text, lab background */
+  --color-graphite: #1b1d20; /* dark surfaces */
+  --color-steel: #8a8f96; /* metallic grey: secondary text, hairlines */
+  --color-mist: #cfcfcb; /* studio floor grey */
+  --color-paper: #f2f1ed; /* warm off-white: main light background */
+  --color-white: #ffffff;
+  --color-green: #00a74a; /* official REVOO accent. Ink text on it (6.0:1) */
+  --color-green-deep: #007a36; /* pressed state; green text on light; white text OK (5.5:1) */
+
+  /* ── Typography ───────────────────────────────────────── */
+  --font-display: var(--font-archivo), "Arial Narrow", Arial, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Fluid type scale (min at 360px, max at 1920px) */
+  --text-micro: 0.6875rem; /* 11px, mono labels */
+  --text-caption: 0.8125rem; /* 13px */
+  --text-body: 1rem;
+  --text-lead: clamp(1.0625rem, 0.98rem + 0.4vw, 1.375rem);
+  --text-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-h2: clamp(2.5rem, 1.6rem + 3.6vw, 5.25rem);
+  --text-h1: clamp(3.25rem, 1.4rem + 7.4vw, 10.5rem);
+  /* Capped by viewport height so a two-line hero never pushes the product off the first screen */
+  --text-mega: clamp(3.25rem, min(0.5rem + 14vw, 22svh), 17rem);
+
+  /* ── Radius: square, precise ─────────────────────────── */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+
+  /* ── Motion ───────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 220ms;
+  --dur-ui: 560ms;
+}
+
+:root {
+  /* Layout */
+  --gutter: clamp(1.25rem, 0.6rem + 2.4vw, 3.5rem);
+  --header-h: 4.25rem;
+  --max-w: 120rem; /* 1920px */
+
+  /* Active theme (swapped by [data-theme]) */
+  --bg: var(--color-paper);
+  --fg: var(--color-ink);
+  --muted: color-mix(in srgb, var(--color-ink) 62%, transparent);
+  --line: color-mix(in srgb, var(--color-ink) 16%, transparent);
+  --accent-text: var(--color-green-deep);
+  --alert: #b3261e; /* functional error colour (not brand): 6.0:1 on paper */
+}
+
+[data-theme="dark"] {
+  --bg: var(--color-ink);
+  --fg: var(--color-paper);
+  --muted: color-mix(in srgb, var(--color-paper) 62%, transparent);
+  --line: color-mix(in srgb, var(--color-paper) 18%, transparent);
+  --accent-text: var(--color-green);
+  --alert: #ff7a6b; /* 7.5:1 on ink */
+}
+
+[data-theme="light"] {
+  --bg: var(--color-paper);
+  --fg: var(--color-ink);
+  --muted: color-mix(in srgb, var(--color-ink) 62%, transparent);
+  --line: color-mix(in srgb, var(--color-ink) 16%, transparent);
+  --accent-text: var(--color-green-deep);
+  --alert: #b3261e;
+}
