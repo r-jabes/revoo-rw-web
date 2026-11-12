@@ -10,7 +10,7 @@ import { PROTOTYPE } from "@/lib/flags";
 
 export function Footer() {
   return (
-    <footer data-theme="dark" data-header-theme="dark" className="bg-[color:var(--bg)] text-[color:var(--fg)]">
+    <footer data-theme="dark" data-header-theme="dark" className="border-t border-[color:var(--line)] bg-[color:var(--bg)] text-[color:var(--fg)]">
       <div className="container-x pt-20 pb-10 md:pt-28">
         <div className="grid gap-14 border-b border-[color:var(--line)] pb-16 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">

@@ -72,3 +72,13 @@ Not generated now. When you start, use official renders as **image references** 
 4. `npm run images` run; spot-check hero at 1440×900, 390×844 and 2560×1440.
 5. `status` changed to `official` or `derived`; `replaceBefore` cleared.
 6. Hero entrance, skeleton overlay and shadows visually re-checked.
+
+## Replacing the A12 render: what else follows it (added in Phase 3)
+
+The home page "Inside the machine" blueprint is derived from the A12 render, so swapping that render touches three things beyond the image itself:
+
+1. **Anchors** in `src/data/assets.ts` (`models.a12.side.anchors`): front and rear wheel centre/radius and the ground line, as fractions of the trimmed image.
+2. **Blueprint linework**: run `npm run edges` (reads the 2400 px WebP written by `npm run images`, writes `public/images/derived/revoo-a12-side-red-lines.webp`). Tune `lo`, `hi` and `clahe` in `scripts/extract-edges.mjs` if the new render is lighter or darker.
+3. **Component marker positions** in `src/data/home.ts` (`engineering[].points`, `shape`). They are fractions of the same image. Battery and controller are deliberately labelled "Illustrative layout" because REVOO has not published where they sit; do not remove that label unless REVOO supplies the layout.
+
+A different model (for example E52 once a proper render exists) needs its own entry in `JOBS` of `scripts/extract-edges.mjs`, its own anchors and component positions, and a small change to `BlueprintStage.tsx`, which currently reads the A12 asset directly.

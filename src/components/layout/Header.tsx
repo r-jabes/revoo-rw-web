@@ -110,7 +110,7 @@ export function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav aria-label="Primary" className="hidden lg:block">
+        <nav aria-label="Primary" className="hidden xl:block">
           <ul
             ref={navRef}
             className="relative flex items-center gap-9"
@@ -161,7 +161,7 @@ export function Header() {
             aria-controls="site-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="relative grid h-11 w-11 place-items-center lg:hidden"
+            className="relative grid h-11 w-11 place-items-center xl:hidden"
           >
             <span aria-hidden className="relative block h-3 w-6">
               <span
@@ -186,7 +186,7 @@ export function Header() {
         id="site-menu"
         inert={!open}
         aria-hidden={!open}
-        className={`fixed inset-0 z-40 flex flex-col overflow-y-auto overscroll-contain bg-[color:var(--color-ink)] text-[color:var(--color-paper)] transition-[clip-path] duration-[700ms] ease-[var(--ease-out-expo)] lg:hidden ${
+        className={`fixed inset-0 z-40 flex flex-col overflow-y-auto overscroll-contain bg-[color:var(--color-ink)] text-[color:var(--color-paper)] transition-[clip-path] duration-[700ms] ease-[var(--ease-out-expo)] xl:hidden ${
           open ? "[clip-path:inset(0_0_0_0)]" : "[clip-path:inset(0_0_100%_0)]"
         }`}
       >

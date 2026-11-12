@@ -60,13 +60,31 @@ export const assets = {
     wordmarkWhite: "/images/brand/revoo-wordmark-white.svg",
     wordmarkDark: "/images/brand/revoo-wordmark-dark.svg",
   },
+  /** Assets generated from official renders by scripts/*.mjs (not in the image manifest). */
+  derived: {
+    /** White line art (alpha = strength) traced from the A12 render. Same framing as models.a12.side. Tint via CSS mask. */
+    a12Lines: {
+      src: "/images/derived/revoo-a12-side-red-lines.webp",
+      width: 2000,
+      height: 1478,
+      source: "scripts/extract-edges.mjs from revoo-a12-side-red (official REVOO render)",
+    },
+  },
   models: {
     a12: {
-      side: official(
-        "revoo-a12-side-red",
-        "REVOO A12 electric scooter in red, side view",
-        "Official REVOO global site (cmsapi.revoo-ev.com/uploads/pk_a12_l_cac89f182b.png)",
-      ),
+      side: {
+        ...official(
+          "revoo-a12-side-red",
+          "REVOO A12 electric scooter in red, side view",
+          "Official REVOO global site (cmsapi.revoo-ev.com/uploads/pk_a12_l_cac89f182b.png)",
+        ),
+        // Measured on the trimmed image (2890x2136). x,y = fraction of width/height; r = fraction of width.
+        anchors: {
+          frontWheel: { x: 0.122, y: 0.838, r: 0.113 },
+          rearWheel: { x: 0.832, y: 0.852, r: 0.1016 },
+          groundY: 0.988,
+        },
+      } satisfies AssetDef,
     },
     a11: {
       side: official(

@@ -21,6 +21,9 @@ export interface Fact<T = string> {
   source?: string;
   /** Extra note shown in tooltips / docs */
   note?: string;
+  /** Big-number display form (e.g. "10+") and its caption, for stat rows */
+  figure?: string;
+  caption?: string;
 }
 
 const tbc = <T = string>(note?: string): Fact<T> => ({ value: null, confidence: "tbc", note });
@@ -33,11 +36,15 @@ export const facts = {
       value: "2023",
       confidence: "international",
       source: "revoo-ev.com/about",
+      figure: "2023",
+      caption: "Year the REVOO brand was founded",
     } satisfies Fact,
     countries: {
       value: "10+ countries",
       confidence: "international",
       source: "revoo-ev.com/about",
+      figure: "10+",
+      caption: "Countries where REVOO is sold",
     } satisfies Fact,
     parent: {
       value: "Part of Transsion Holdings' mobility ecosystem",
@@ -49,6 +56,8 @@ export const facts = {
       value: "12,000+ km of durability testing in East Africa",
       confidence: "international",
       source: "revoo-ev.com/about (2023 milestone)",
+      figure: "12,000+ km",
+      caption: "Durability testing in East Africa",
     } satisfies Fact,
   },
 
@@ -73,6 +82,8 @@ export const facts = {
       confidence: "international",
       source: "revoo-ev.com/service",
       note: "Rwanda terms unconfirmed. Battery/motor terms vary by model and market.",
+      figure: "2 yrs",
+      caption: "Or 20,000 km whole-vehicle warranty (global programme)",
     } satisfies Fact,
     chargingHome: {
       value: "Charges from a standard household outlet",
