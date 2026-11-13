@@ -5,13 +5,13 @@ export function FinalCta() {
   return (
     <Section id="start" theme="dark" labelledBy="start-title" className="overflow-hidden py-28 md:py-44">
       <div className="container-x">
-        <p className="t-label text-[color:var(--accent-text)]">Your move</p>
+        <p data-reveal className="t-label text-[color:var(--accent-text)]">Your move</p>
         <h2 id="start-title" className="t-display t-mega mt-8">
-          Move
+          Move{" "}
           <br />
           beyond.
         </h2>
-        <div className="mt-14 flex flex-col gap-8 border-t border-[color:var(--line)] pt-10 md:flex-row md:items-center md:justify-between">
+        <div data-reveal className="mt-14 flex flex-col gap-8 border-t border-[color:var(--line)] pt-10 md:flex-row md:items-center md:justify-between">
           <p className="t-lead max-w-md">
             Tell us which model you are interested in and arrange a test ride.
           </p>

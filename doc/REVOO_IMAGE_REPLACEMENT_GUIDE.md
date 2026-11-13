@@ -81,4 +81,11 @@ The home page "Inside the machine" blueprint is derived from the A12 render, so 
 2. **Blueprint linework**: run `npm run edges` (reads the 2400 px WebP written by `npm run images`, writes `public/images/derived/revoo-a12-side-red-lines.webp`). Tune `lo`, `hi` and `clahe` in `scripts/extract-edges.mjs` if the new render is lighter or darker.
 3. **Component marker positions** in `src/data/home.ts` (`engineering[].points`, `shape`). They are fractions of the same image. Battery and controller are deliberately labelled "Illustrative layout" because REVOO has not published where they sit; do not remove that label unless REVOO supplies the layout.
 
+Phase 4 adds two more dependencies on the same render:
+
+4. **Hero wheel discs** (`src/components/motion/hero.ts`) crop the real wheels from the hero image using the same `anchors`. They are a desktop-only experiment; if the new render makes them look cheap at rest, delete the `discs`/`spinners` block in `heroEntrance` and nothing else changes.
+5. **Exploded wheels** in the blueprint (`BlueprintStage.tsx`) are the same linework clipped to circles of `anchors.*.r × SPLIT` (1.06). If a new render's fender or fork sits well outside that radius, raise `SPLIT`.
+
+Line colour is baked into the linework file (`tint` in `scripts/extract-edges.mjs`, brand paper `#f2f1ed`) because SVG cannot tint a raster with CSS. Re-run `npm run edges` after changing it.
+
 A different model (for example E52 once a proper render exists) needs its own entry in `JOBS` of `scripts/extract-edges.mjs`, its own anchors and component positions, and a small change to `BlueprintStage.tsx`, which currently reads the A12 asset directly.

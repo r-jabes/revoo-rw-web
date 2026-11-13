@@ -31,9 +31,10 @@ function Skyline() {
       focusable="false"
       className="absolute inset-x-0 bottom-0 h-full w-full"
     >
+      {([1, 0] as const).map((layer) => (
+        <g key={layer} data-city={layer ? "far" : "near"}>
       {buildings
-        .slice()
-        .sort((a, b) => a.l - b.l)
+        .filter((b) => b.l === layer)
         .map((b, i) => {
           const y = 420 - b.h;
           const rows = Math.floor(b.h / 38);
@@ -67,6 +68,8 @@ function Skyline() {
             </g>
           );
         })}
+        </g>
+      ))}
     </svg>
   );
 }
@@ -82,7 +85,7 @@ export function City() {
               Made for the city.
             </h2>
           </div>
-          <p className="t-body self-end text-[color:var(--muted)] lg:col-span-4 lg:col-start-9">
+          <p data-reveal className="t-body self-end text-[color:var(--muted)] lg:col-span-4 lg:col-start-9">
             A step-through frame, hydraulic suspension and ground clearance for everyday streets. Shown here: the
             C35Y.
           </p>
@@ -90,7 +93,7 @@ export function City() {
       </div>
 
       {/* Street scene: generic illustration, not a real location */}
-      <div className="relative mt-14 aspect-[4/3] w-full overflow-hidden border-y border-[color:var(--line)] sm:aspect-[16/9] lg:mt-20 lg:aspect-[16/8]">
+      <div data-city="scene" className="relative mt-14 aspect-[4/3] w-full overflow-hidden border-y border-[color:var(--line)] sm:aspect-[16/9] lg:mt-20 lg:aspect-[16/8]">
         <div className="absolute inset-x-0 bottom-[26%] top-0">
           <Skyline />
         </div>
@@ -98,14 +101,20 @@ export function City() {
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-[26%] border-t border-[color:var(--fg)] bg-[color-mix(in_srgb,var(--color-mist)_55%,var(--color-paper))]"
         >
-          <div className="absolute inset-x-0 top-[58%] h-px border-t border-dashed border-[color:var(--fg)] opacity-40" />
+          <div
+            data-city="road"
+            className="absolute inset-x-0 top-[58%] h-px opacity-40 [background-image:repeating-linear-gradient(90deg,var(--fg)_0_28px,transparent_28px_56px)]"
+          />
         </div>
         <div className="absolute bottom-[calc(26%-3%)] left-1/2 z-10 w-[min(88%,46rem)] -translate-x-1/2">
-          <Picture asset={assets.models.c35y.side} sizes="(min-width:1024px) 46rem, 88vw" />
-          <div
-            aria-hidden
-            className="absolute bottom-[-2%] left-[6%] h-[6%] w-[88%] rounded-[50%] bg-[radial-gradient(closest-side,rgba(14,15,17,0.3),rgba(14,15,17,0))]"
-          />
+          <div data-city="bike" className="relative">
+            <Picture asset={assets.models.c35y.side} sizes="(min-width:1024px) 46rem, 88vw" />
+            <div
+              aria-hidden
+              data-city="shadow"
+              className="absolute bottom-[-2%] left-[6%] h-[6%] w-[88%] rounded-[50%] bg-[radial-gradient(closest-side,rgba(14,15,17,0.3),rgba(14,15,17,0))]"
+            />
+          </div>
         </div>
         <p className="t-label absolute bottom-3 left-[var(--gutter)] z-10 text-[0.625rem] text-[color:var(--muted)]">
           Illustration · not a real location
@@ -113,7 +122,7 @@ export function City() {
       </div>
 
       <div className="container-x">
-        <dl className="mt-14 grid gap-px border-t border-[color:var(--line)] sm:grid-cols-3">
+        <dl data-reveal className="mt-14 grid gap-px border-t border-[color:var(--line)] sm:grid-cols-3">
           {cityFacts.map((f) => (
             <div key={f.label} className="border-b border-[color:var(--line)] py-6 sm:border-b-0 sm:pr-8">
               <dt className="t-label text-[color:var(--muted)]">{f.label}</dt>
@@ -126,7 +135,7 @@ export function City() {
         </dl>
 
         {/* Visit: real-world presence gets headline treatment */}
-        <div className="mt-24 grid gap-10 border-t border-[color:var(--fg)] pt-14 md:mt-36 lg:grid-cols-12 lg:gap-8">
+        <div data-reveal className="mt-24 grid gap-10 border-t border-[color:var(--fg)] pt-14 md:mt-36 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <p className="t-label text-[color:var(--accent-text)]">Visit REVOO</p>
             <h3 className="t-display t-h2 mt-5">Find us in Kigali.</h3>

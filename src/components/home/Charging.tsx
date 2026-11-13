@@ -19,7 +19,7 @@ export function Charging() {
         </div>
 
         <div className="mt-16 grid gap-16 lg:mt-24 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
+          <div data-reveal className="lg:col-span-5">
             <p className="t-display t-h2">{home.value}.</p>
             <p className="t-body mt-6 max-w-sm text-[color:var(--muted)]">
               Charge at home or wherever there is a socket.
@@ -31,7 +31,7 @@ export function Charging() {
             </p>
           </div>
 
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div data-reveal className="lg:col-span-6 lg:col-start-7">
             <table className="w-full border-collapse text-left">
               <caption className="t-label mb-5 text-left text-[color:var(--muted)]">
                 REVOO A12 · two battery options <Tag confidence={a12Batteries.confidence} />

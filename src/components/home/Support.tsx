@@ -18,7 +18,7 @@ export function Support() {
               From booking to handover.
             </h2>
           </div>
-          <p className="t-body self-end text-[color:var(--muted)] lg:col-span-4 lg:col-start-9">
+          <p data-reveal className="t-body self-end text-[color:var(--muted)] lg:col-span-4 lg:col-start-9">
             REVOO&apos;s global service programme follows six steps. Service details for Rwanda are confirmed branch
             by branch. <Tag confidence="international" />
           </p>
@@ -26,7 +26,7 @@ export function Support() {
 
         <ol className="mt-16 grid sm:grid-cols-2 lg:mt-24 lg:grid-cols-3">
           {steps.map((s, i) => (
-            <li key={s} className="border-t border-[color:var(--line)] py-8 pr-6 lg:py-10">
+            <li key={s} data-reveal className="border-t border-[color:var(--line)] py-8 pr-6 lg:py-10">
               <span className="t-label text-[color:var(--accent-text)]">{String(i + 1).padStart(2, "0")}</span>
               <p className="t-display t-h3 mt-6">{s}</p>
             </li>
@@ -34,7 +34,7 @@ export function Support() {
         </ol>
 
         <div className="grid gap-12 border-t border-[color:var(--line)] pt-14 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
+          <div data-reveal className="lg:col-span-5">
             <h3 className="t-label mb-6 text-[color:var(--muted)]">What the programme promises</h3>
             <ul className="space-y-4">
               {promises.map((p) => (
@@ -45,7 +45,7 @@ export function Support() {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div data-reveal className="lg:col-span-6 lg:col-start-7">
             <h3 className="t-label mb-6 text-[color:var(--muted)]">Three kinds of REVOO location</h3>
             <ul>
               {formats.map((f) => (

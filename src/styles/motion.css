@@ -1,0 +1,72 @@
+/*
+ * Motion support (Phase 4).
+ *
+ * Contract: the server-rendered page is always complete and legible. Animation
+ * is a progressive enhancement. A tiny boot script (src/lib/motion-boot.ts) adds
+ *   .js            JavaScript is running
+ *   .rm            user prefers reduced motion  → never hide anything
+ *   .intro-seen    brand intro already played this session
+ * and the motion controller adds
+ *   .motion-on     GSAP has taken over the pre-state
+ *   .intro-done    intro finished
+ *   .motion-failed set by a 4.5 s watchdog if the controller never started
+ * Anything hidden here is revealed again by .motion-failed, so a failed script
+ * can never leave the hero invisible.
+ */
+
+/* Elements GSAP will animate in: hidden only until GSAP applies its own from-state */
+html.js:not(.rm):not(.motion-on):not(.motion-failed) [data-pre] {
+  visibility: hidden;
+}
+
+/* Brand intro: opt-in by .js, off for reduced motion / repeat visits / failures */
+.intro {
+  display: none;
+}
+html.js:not(.rm):not(.intro-seen):not(.intro-done):not(.motion-failed) .intro {
+  display: grid;
+}
+
+/*
+ * The wordmark reveal is plain CSS so it plays during page load, before any JS has
+ * arrived (a black screen while the bundle downloads would feel broken). GSAP only
+ * handles the exit once hydrated.
+ */
+.intro [data-intro="word"] {
+  animation: intro-word 0.5s var(--ease-out-expo) 0.05s both;
+}
+.intro [data-intro="bar"] {
+  transform-origin: left;
+  animation: intro-bar 0.55s var(--ease-in-out) 0.1s both;
+}
+@keyframes intro-word {
+  from {
+    transform: translateY(108%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes intro-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Hero headline masks: each line is revealed from a clipped box */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  /* room for outlined strokes and accents so the mask never shaves glyphs */
+  padding-block: 0.07em;
+  margin-block: -0.07em;
+}
+
+/* Hints only while something is actually moving (GSAP toggles these) */
+[data-moto],
+[data-hero="speed"] > span {
+  backface-visibility: hidden;
+}

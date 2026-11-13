@@ -6,12 +6,13 @@
  */
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 
 let registered = false;
 
 export function registerGsap() {
   if (registered || typeof window === "undefined") return;
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, SplitText);
   // Mobile address-bar show/hide must not retrigger layout-heavy refreshes.
   ScrollTrigger.config({ ignoreMobileResize: true });
   registered = true;
@@ -19,7 +20,7 @@ export function registerGsap() {
 
 registerGsap();
 
-export { gsap, ScrollTrigger };
+export { gsap, ScrollTrigger, SplitText };
 
 /** Shared motion tokens (mirror of CSS custom properties). */
 export const motion = {

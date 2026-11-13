@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
+import { MOTION_BOOT } from "@/lib/motion-boot";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/flags";
@@ -32,7 +33,12 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${inter.variable} ${jetbrains.variable}`}>
+    // suppressHydrationWarning: the boot script adds classes (js / rm / intro-seen) to <html>.
+    <html lang="en" className={`${archivo.variable} ${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Plain inline script (not next/script, whose beforeInteractive needs the client runtime): it must run before first paint. */}
+        <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT }} />
+      </head>
       <body data-theme="light">
         <a href="#main" className="skip-link">
           Skip to content

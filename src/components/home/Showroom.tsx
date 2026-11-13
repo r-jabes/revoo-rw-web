@@ -46,7 +46,7 @@ export function Showroom() {
               Choose your REVOO.
             </h2>
           </div>
-          <p className="t-body self-end text-[color:var(--muted)] lg:col-span-4 lg:col-start-9">
+          <p data-reveal className="t-body self-end text-[color:var(--muted)] lg:col-span-4 lg:col-start-9">
             Four electric two-wheelers for different journeys. Figures shown are official international
             specifications. Rwanda versions will be confirmed model by model. <Tag confidence="international" />
           </p>
@@ -59,7 +59,7 @@ export function Showroom() {
                 href={`/range/${m.slug}`}
                 className="group grid gap-6 py-10 md:py-12 lg:grid-cols-12 lg:items-center lg:gap-8"
               >
-                <div className="lg:col-span-5">
+                <div data-reveal className="lg:col-span-5">
                   <p className="t-label flex items-center gap-3 text-[color:var(--muted)]">
                     <span className="text-[color:var(--accent-text)]">{String(i + 1).padStart(2, "0")}</span>
                     {m.series}
@@ -93,7 +93,7 @@ export function Showroom() {
                     <ArrowRight className="h-4 w-4 transition-transform duration-[var(--dur-micro)] group-hover:translate-x-1" />
                   </p>
                 </div>
-                <div className="lg:col-span-6 lg:col-start-7">
+                <div data-drive className="lg:col-span-6 lg:col-start-7">
                   <ModelImage model={m} />
                 </div>
               </Link>
@@ -101,7 +101,7 @@ export function Showroom() {
           ))}
         </ul>
 
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-6">
+        <div data-reveal className="mt-12 flex flex-wrap items-center justify-between gap-6">
           <p className="t-body max-w-md text-[color:var(--muted)]">
             Not sure which fits your day? Compare the full range side by side.
           </p>

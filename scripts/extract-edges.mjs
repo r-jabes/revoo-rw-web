@@ -7,8 +7,7 @@
  * so the blueprint matches REVOO's real silhouette pixel-for-pixel. Nothing is redrawn
  * or invented: it is edge detection (Sobel on luminance + silhouette alpha).
  *
- * Output: public/images/derived/<id>-lines.webp  (white lines, alpha = line strength)
- * The site tints it with CSS `mask-image`, so one file serves any line colour.
+ * Output: public/images/derived/<id>-lines.webp  (lines in `tint` colour, alpha = line strength)
  */
 import sharp from "sharp";
 import fs from "node:fs/promises";
@@ -27,6 +26,9 @@ const JOBS = [
     hi: 70,
     silhouette: 1.0,
     clahe: 6,
+    // line colour baked in (brand paper #f2f1ed): the blueprint is drawn as SVG <image>
+    // groups so wheels/body can be exploded; SVG cannot tint a raster with CSS.
+    tint: [242, 241, 237],
   },
 ];
 
@@ -74,15 +76,16 @@ async function process_(job) {
     return Math.hypot(gx, gy) / 4;
   };
 
+  const tint = job.tint ?? [255, 255, 255];
   const out = Buffer.alloc(w * h * 4);
   for (let y = 1; y < h - 1; y++) {
     for (let x = 1; x < w - 1; x++) {
       const i = y * w + x;
       const m = Math.max(sobel(blur, x, y), sobel(alp, x, y) * job.silhouette);
       const t = Math.min(1, Math.max(0, (m - job.lo) / (job.hi - job.lo)));
-      out[i * 4] = 255;
-      out[i * 4 + 1] = 255;
-      out[i * 4 + 2] = 255;
+      out[i * 4] = tint[0];
+      out[i * 4 + 1] = tint[1];
+      out[i * 4 + 2] = tint[2];
       out[i * 4 + 3] = Math.round(t * t * (3 - 2 * t) * 255); // smoothstep
     }
   }

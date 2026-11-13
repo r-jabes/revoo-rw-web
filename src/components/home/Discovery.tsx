@@ -13,8 +13,8 @@ export function Discovery() {
           <h2 id="discovery-title" className="t-display t-h1 mt-8 max-w-[14ch]">
             Not just another ride.
           </h2>
-          <p className="t-lead mt-10 max-w-xl">{facts.brand.positioning}</p>
-          <p className="t-body mt-5 max-w-xl text-[color:var(--muted)]">
+          <p data-reveal className="t-lead mt-10 max-w-xl">{facts.brand.positioning}</p>
+          <p data-reveal className="t-body mt-5 max-w-xl text-[color:var(--muted)]">
             REVOO builds electric two-wheelers for everyday city riding, from the step-through A Series to the
             E Series flagship. Here is what stands behind the name.
           </p>
@@ -24,9 +24,10 @@ export function Discovery() {
           {stats.map((f) => (
             <div
               key={f.figure}
+              data-reveal
               className="grid grid-cols-[minmax(0,1fr)] gap-2 border-t border-[color:var(--line)] py-6 sm:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] sm:items-baseline sm:gap-8"
             >
-              <dt className="t-display whitespace-nowrap text-[clamp(2.25rem,1.6rem+1.6vw,3.25rem)] leading-none">
+              <dt data-count className="t-display whitespace-nowrap tabular-nums text-[clamp(2.25rem,1.6rem+1.6vw,3.25rem)] leading-none">
                 {f.figure}
               </dt>
               <dd className="text-[0.9375rem] leading-snug text-[color:var(--muted)]">
