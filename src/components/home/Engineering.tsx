@@ -1,5 +1,25 @@
-import { EngineeringExplorer } from "@/components/engineering/EngineeringExplorer";
+import dynamic from "next/dynamic";
 import { Eyebrow, Section } from "./Section";
+
+/**
+ * Blueprint explorer is below the fold on home — load it in a separate chunk
+ * so the hero path stays lean. SSR kept so no-JS / crawlers still see the diagram.
+ */
+const EngineeringExplorer = dynamic(
+  () =>
+    import("@/components/engineering/EngineeringExplorer").then((m) => ({
+      default: m.EngineeringExplorer,
+    })),
+  {
+    ssr: true,
+    loading: () => (
+      <div
+        className="min-h-[min(70svh,36rem)] border border-dashed border-[color:var(--line)]"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export function Engineering() {
   return (
