@@ -4,7 +4,7 @@
  * Components reference images ONLY by id (e.g. assets.models.a12.side).
  * To replace an image: drop a new `<id>.src.png` in assets-src/<group>/ and
  * run `npm run images`, or point an entry at a different id. No component
- * edits needed. See doc/REVOO_IMAGE_REPLACEMENT_GUIDE.md.
+ * edits needed. Drop a new `<id>.src.png` in assets-src and run `npm run images`.
  *
  * `anchors` are named points in the *trimmed* image, as fractions (0-1) of
  * width/height. Hero shadow, wheel blur discs and the blueprint overlay are

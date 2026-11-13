@@ -9,11 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "images": "node scripts/images.mjs",
-    "edges": "node scripts/extract-edges.mjs",
-    "crawl": "node scripts/crawl.mjs",
-    "a11y": "node scripts/a11y-check.mjs",
-    "images:check": "node scripts/image-check.mjs",
-    "qa": "node scripts/qa.mjs"
+    "edges": "node scripts/extract-edges.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.1",

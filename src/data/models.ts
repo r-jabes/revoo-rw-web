@@ -4,7 +4,6 @@
  * ALL specification values are OFFICIAL INTERNATIONAL figures (mainly the
  * REVOO Pakistan site, cross-checked with Bangladesh/Nigeria/Senegal).
  * Rwanda availability and Rwanda-variant specs are UNCONFIRMED.
- * See doc/REVOO_BRAND_RESEARCH.md §4.
  */
 import { assets, type AssetDef, type ModelKey } from "./assets";
 import type { Confidence } from "./facts";

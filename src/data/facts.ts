@@ -9,7 +9,7 @@
  *  international Official REVOO information from other markets / global site
  *  tbc           Unknown or unverified. Must be confirmed by REVOO Rwanda
  *
- * See doc/REVOO_BRAND_RESEARCH.md for sources.
+ * Sources are tagged per fact (revoo-ev.com, IGIHE, Instagram, etc.).
  */
 
 export type Confidence = "confirmed-rw" | "international" | "tbc";

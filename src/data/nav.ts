@@ -8,7 +8,7 @@ export interface NavItem {
 /*
  * "The Range" replaces the brief's "Motorcycles" label/route: REVOO's products
  * are step-through electric scooters, and the approved terminology is
- * "electric two-wheelers". See doc/IMPLEMENTATION_PLAN.md §7a.
+ * "electric two-wheelers".
  */
 export const mainNav: NavItem[] = [
   { label: "Home", href: "/", caption: "01" },
