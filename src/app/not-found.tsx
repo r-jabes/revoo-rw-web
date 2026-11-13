@@ -1,11 +1,21 @@
-import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
+import { ButtonLink } from "@/components/ui/Button";
+import { PageHero } from "@/components/page/PageHero";
 
 export default function NotFound() {
   return (
-    <PagePlaceholder
+    <PageHero
+      id="not-found"
       eyebrow="404"
       title="Off route."
-      note="That page doesn't exist. Head back to the start and pick up the ride."
-    />
+      lead="That page does not exist. Head back to the start and pick up the ride."
+      labelledBy="not-found-title"
+    >
+      <div className="flex flex-wrap gap-3">
+        <ButtonLink href="/">Back to home</ButtonLink>
+        <ButtonLink href="/range" variant="outline">
+          Explore the range
+        </ButtonLink>
+      </div>
+    </PageHero>
   );
 }

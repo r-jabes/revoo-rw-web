@@ -70,3 +70,28 @@ html.js:not(.rm):not(.intro-seen):not(.intro-done):not(.motion-failed) .intro {
 [data-hero="speed"] > span {
   backface-visibility: hidden;
 }
+
+/* Range switcher: one bike arrives from the right (both renders face left) */
+@keyframes range-in {
+  from {
+    opacity: 0;
+    transform: translateX(2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes range-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+.range-in {
+  animation: range-in 0.55s var(--ease-out-expo) both;
+}

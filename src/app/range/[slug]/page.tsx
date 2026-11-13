@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { PagePlaceholder } from "@/components/ui/PagePlaceholder";
+import { ModelPageView } from "@/components/range/ModelPage";
 import { getModel, models } from "@/data/models";
 import { buildMetadata } from "@/lib/seo";
 
@@ -22,11 +22,5 @@ export default async function ModelPage({ params }: { params: Promise<{ slug: st
   const { slug } = await params;
   const model = getModel(slug);
   if (!model) notFound();
-  return (
-    <PagePlaceholder
-      eyebrow={model.series}
-      title={`REVOO ${model.code}`}
-      note="Product page. Built in Phase 5 (hero, overview, numbered spec accordion, battery and charging, gallery, enquiry)."
-    />
-  );
+  return <ModelPageView model={model} />;
 }
