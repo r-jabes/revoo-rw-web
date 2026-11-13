@@ -25,6 +25,8 @@ const SEEDS = [
   "/legal/privacy",
   "/legal/terms",
   "/styleguide",
+  "/sitemap.xml",
+  "/robots.txt",
   "/this-page-should-404",
 ];
 

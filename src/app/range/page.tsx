@@ -3,6 +3,8 @@ import { Tag } from "@/components/ui/Tag";
 import { PageHero, PageSection } from "@/components/page/PageHero";
 import { RangeCompare } from "@/components/range/RangeCompare";
 import { RangeModelLinks, RangeSwitcher } from "@/components/range/RangeSwitcher";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, rangeItemListJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -14,6 +16,15 @@ export const metadata = buildMetadata({
 export default function RangePage() {
   return (
     <>
+      <JsonLd
+        data={[
+          rangeItemListJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Range", path: "/range" },
+          ]),
+        ]}
+      />
       <PageHero
         id="range"
         eyebrow="02 · The range"

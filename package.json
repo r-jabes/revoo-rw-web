@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "images": "node scripts/images.mjs",
     "edges": "node scripts/extract-edges.mjs",
-    "crawl": "node scripts/crawl.mjs"
+    "crawl": "node scripts/crawl.mjs",
+    "a11y": "node scripts/a11y-check.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.1",

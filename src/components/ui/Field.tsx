@@ -22,10 +22,12 @@ function FieldShell({ label, hint, error, required, id, children }: FieldShellPr
             </span>
           )}
         </span>
-        {!required && <span className="normal-case tracking-normal opacity-70">Optional</span>}
+        {!required && (
+          <span className="normal-case tracking-normal text-[color:var(--muted)]">Optional</span>
+        )}
       </label>
       {children}
-      {hint && !error && (
+      {hint && (
         <p id={`${id}-hint`} className="mt-2 text-[0.8125rem] text-[color:var(--muted)]">
           {hint}
         </p>
@@ -57,7 +59,7 @@ export function Input({ label, hint, error, required, ...rest }: BaseProps & Com
         id={id}
         required={required}
         aria-invalid={!!error || undefined}
-        aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
+        aria-describedby={[hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined}
         className={control}
         {...rest}
       />
@@ -74,7 +76,7 @@ export function Textarea({ label, hint, error, required, ...rest }: BaseProps & 
         required={required}
         rows={4}
         aria-invalid={!!error || undefined}
-        aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
+        aria-describedby={[hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined}
         className={`${control} resize-y`}
         {...rest}
       />
@@ -97,7 +99,7 @@ export function Select({
         id={id}
         required={required}
         aria-invalid={!!error || undefined}
-        aria-describedby={error ? `${id}-error` : hint ? `${id}-hint` : undefined}
+        aria-describedby={[hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined}
         className={`${control} appearance-none rounded-none bg-[length:12px] bg-[right_0.25rem_center] bg-no-repeat pr-6`}
         style={{
           backgroundImage:

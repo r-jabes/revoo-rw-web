@@ -14,7 +14,9 @@ export function Footer() {
       <div className="container-x pt-20 pb-10 md:pt-28">
         <div className="grid gap-14 border-b border-[color:var(--line)] pb-16 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <Logo height={26} />
+            <Link href="/" aria-label="REVOO Rwanda, home" className="inline-block">
+              <Logo height={26} />
+            </Link>
             <p className="t-lead mt-6 !text-[color:var(--muted)]">{facts.brand.positioning}</p>
           </div>
 

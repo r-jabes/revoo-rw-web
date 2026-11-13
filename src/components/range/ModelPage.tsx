@@ -144,19 +144,21 @@ export function ModelPageView({ model }: { model: Model }) {
               Power for the day.
             </h2>
           </div>
-          <dl className="lg:col-span-6 lg:col-start-7">
-            {[battery, range, charge].filter(Boolean).map((s) => (
-              <div key={s!.key} className="border-t border-[color:var(--line)] py-6 last:border-b">
-                <dt className="t-label text-[color:var(--muted)]">{s!.label}</dt>
-                <dd className="t-spec-value mt-2 text-[clamp(1.15rem,1rem+0.7vw,1.6rem)]">{s!.value}</dd>
-                {s!.note && <dd className="mt-2 text-[0.8125rem] text-[color:var(--muted)]">{s!.note}</dd>}
-              </div>
-            ))}
+          <div className="lg:col-span-6 lg:col-start-7">
+            <dl>
+              {[battery, range, charge].filter(Boolean).map((s) => (
+                <div key={s!.key} className="border-t border-[color:var(--line)] py-6 last:border-b">
+                  <dt className="t-label text-[color:var(--muted)]">{s!.label}</dt>
+                  <dd className="t-spec-value mt-2 text-[clamp(1.15rem,1rem+0.7vw,1.6rem)]">{s!.value}</dd>
+                  {s!.note && <dd className="mt-2 text-[0.8125rem] text-[color:var(--muted)]">{s!.note}</dd>}
+                </div>
+              ))}
+            </dl>
             <p className="mt-6 text-[0.8125rem] text-[color:var(--muted)]">
               Charges from a standard household outlet in Rwanda. <Tag confidence="confirmed-rw" /> Which battery
               chemistry ships with each model is to be confirmed. <Tag confidence="tbc" />
             </p>
-          </dl>
+          </div>
         </div>
       </PageSection>
 

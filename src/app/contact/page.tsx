@@ -2,9 +2,11 @@ import { Tag } from "@/components/ui/Tag";
 import { ArrowUpRight } from "@/components/ui/Icons";
 import { EnquiryForm } from "@/components/contact/EnquiryForm";
 import { PageHero, PageSection } from "@/components/page/PageHero";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { facts } from "@/data/facts";
 import { locations } from "@/data/locations";
 import { PROTOTYPE } from "@/lib/flags";
+import { breadcrumbJsonLd, localBusinessJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -16,6 +18,15 @@ export const metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          localBusinessJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+        ]}
+      />
       <PageHero
         id="contact"
         eyebrow="06 · Contact"

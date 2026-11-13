@@ -4,7 +4,9 @@ import "@/styles/globals.css";
 import { MOTION_BOOT } from "@/lib/motion-boot";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/flags";
+import { organizationJsonLd, webSiteJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 
 // Display: variable weight + width axis (condensed headlines, expanded labels).
@@ -40,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT }} />
       </head>
       <body data-theme="light">
+        <JsonLd data={[organizationJsonLd(), webSiteJsonLd()]} />
         <a href="#main" className="skip-link">
           Skip to content
         </a>

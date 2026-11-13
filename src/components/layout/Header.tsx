@@ -228,12 +228,13 @@ export function Header() {
             {primaryCta.label}
           </ButtonLink>
           <a
-            href={facts.rwanda.instagram.value}
+            href={facts.rwanda.instagram.value ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="t-label text-steel hover:text-green"
+            className="t-label inline-flex min-h-11 items-center text-steel hover:text-green"
           >
             Instagram {facts.rwanda.instagramHandle.value} ↗
+            <span className="sr-only">(opens in a new tab)</span>
           </a>
         </div>
       </div>
